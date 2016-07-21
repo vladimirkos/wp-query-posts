@@ -1,0 +1,16 @@
+	<?php if ( have_posts() ) : query_posts('cat=2');
+							while( have_posts() ) : the_post(); ?>
+								<!-- post-->
+								<div class="project">
+									<div class="photo_prog">
+										<?php the_post_thumbnail(full); ?>
+										<i class="fa fa-eye" aria-hidden="true"></i>
+									</div>
+									<h3><?php the_title(); ?></h3>
+									<a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>" target='_blank'  class="button" title="<?php the_title(); ?>">Посмотреть</a>
+								</div>
+    <?php endwhile; ?>
+        <!--  post-navigation-->
+    <?php else: ?>
+    <!--post-faund-->
+    <?php endif; ?>
